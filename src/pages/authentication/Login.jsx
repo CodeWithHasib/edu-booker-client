@@ -1,15 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import SocialAuth from './SocialAuth';
+import { useAuth } from '../../hooks/useAuth';
 const Login = () => {
 
+  const { login , user } = useAuth();
 
+
+  if (user) {
+    return <Navigate to='/' />
+  }
 
   const handelFromSubmit = e => {
     e.preventDefault();
     const from = new FormData(e.target);
     const data = Object.fromEntries(from);
-    console.log(data);
+    login(data.email, data.password)
+      .then(userCredential => {
+        console.log(userCredential.user);
+      }
+      )
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (
@@ -23,7 +36,7 @@ const Login = () => {
             </p>
           </div>
           <div className="space-y-6">
-            <form onSubmit={() => handelFromSubmit()} className="space-y-6">
+            <form onSubmit={(e) => handelFromSubmit(e)} className="space-y-6">
               <div className="">
                 <input
                   className="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"

@@ -13,7 +13,7 @@ const MainLayout = () => {
     }, []);
 
     if (loader) {
-        return <div className="">
+        return <div className="h-screen w-full flex flex-col justify-center items-center">
             <BarLoader color="#36d7b7" />
         </div>
     }

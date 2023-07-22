@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import { AuthContext } from '../../context/AuthProvider';
 const navLinks = [
     {
         name: 'Home',
@@ -28,7 +29,8 @@ const NavBar = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [navBg, setNavBg] = useState('bg-black');
     const [isFixed, setIsFixed] = useState(false);
-    const { user, logout } = useAuth();
+    const { logout } = useAuth();
+    const { user, setUser } = useContext(AuthContext)
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -51,6 +53,7 @@ const NavBar = () => {
                             'You are logged out successful.',
                             'success'
                         )
+                        setUser(null);
                     })
                     .catch(err => {
                         Swal.fire(
