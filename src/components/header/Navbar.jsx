@@ -99,7 +99,7 @@ const NavBar = () => {
 
     return (
         <motion.nav
-            className={`bg-black  backdrop-blur-2xl  static  top-0 transition-colors duration-500 ease-in-out  w-full z-10`}
+            className={`bg-black  backdrop-blur-2xl  fixed  top-0 transition-colors duration-500 ease-in-out  w-full z-10`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
