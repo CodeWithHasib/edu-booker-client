@@ -28,7 +28,7 @@ const NavBar = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [navBg, setNavBg] = useState('bg-black');
     const [isFixed, setIsFixed] = useState(false);
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -44,21 +44,21 @@ const NavBar = () => {
             confirmButtonText: 'Yes, Logout.!'
         }).then((result) => {
             if (result.isConfirmed) {
-                // logout()
-                //     .then(() => {
-                //         Swal.fire(
-                //             'Logged out!',
-                //             'You are logged out successful.',
-                //             'success'
-                //         )
-                //     })
-                //     .catch(err => {
-                //         Swal.fire(
-                //             'Error!',
-                //             err.message,
-                //             'error'
-                //         )
-                //     })
+                logout()
+                    .then(() => {
+                        Swal.fire(
+                            'Logged out!',
+                            'You are logged out successful.',
+                            'success'
+                        )
+                    })
+                    .catch(err => {
+                        Swal.fire(
+                            'Error!',
+                            err.message,
+                            'error'
+                        )
+                    })
             }
         })
     }
