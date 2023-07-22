@@ -144,6 +144,11 @@ const NavBar = () => {
 
                                     </li>
                                 ))}
+                                {
+                                    user && <li>
+                                        <span className='text-blue-500'>{user?.displayName}</span>
+                                    </li>
+                                }
 
                                 {
                                     user ? <li>
