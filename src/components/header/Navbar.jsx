@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars } from 'react-icons/fa';
-import { FcElectricalSensor } from 'react-icons/fc';
 import Swal from 'sweetalert2';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 const navLinks = [
@@ -10,8 +9,8 @@ const navLinks = [
         route: '/'
     },
     {
-        name: 'Instructors',
-        route: '/instructors'
+        name: 'Login',
+        route: '/register'
     },
     {
         name: 'Classes',
@@ -99,7 +98,7 @@ const NavBar = () => {
 
     return (
         <motion.nav
-            className={`bg-black  backdrop-blur-2xl  fixed  top-0 transition-colors duration-500 ease-in-out  w-full z-10`}
+            className={`bg-black  backdrop-blur-2xl  fixed  top-0 transition-colors duration-500 ease-in-out  w-full z-50`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -131,7 +130,7 @@ const NavBar = () => {
                                 {navLinks.map((link) => (
                                     <li key={link.route}>
                                         <NavLink
-                                            className={({ isActive }) => `font-bold ${isActive ? 'text-secondary' : `${navBg.includes('bg-transparent') ? 'text-white' : 'text-black'}`} hover:text-secondary duration-300`}
+                                            className={({ isActive }) => `font-bold ${isActive ? 'text-blue-600' : `${navBg.includes('bg-transparent') ? 'text-white' : 'text-white'}`} hover:text-secondary duration-300`}
                                             to={link.route}
                                             style={{ whiteSpace: 'nowrap' }}
                                         >
