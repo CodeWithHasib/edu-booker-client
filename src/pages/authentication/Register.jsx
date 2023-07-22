@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import SocialAuth from './SocialAuth';
 const Register = () => {
 
   const { register, updateName, user } = useAuth();
@@ -89,6 +90,7 @@ const Register = () => {
                   </button>
                 </div>
               </form>
+              <SocialAuth />
             </div>
             <svg
               viewBox="0 0 91 91"
@@ -146,6 +148,10 @@ const Register = () => {
             </svg>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center">
+
+        <span className='text-center'>Already Have an Account Please <Link className='font-bold text-blue-600 ' to={'/login'}>Login</Link> </span>
       </div>
     </div>
   );
