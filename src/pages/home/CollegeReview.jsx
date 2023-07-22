@@ -1,6 +1,8 @@
 import React from 'react';
+import StarRatings from 'react-star-ratings';
 
-const CollegeReviewsSection = () => {
+
+const CollegeReviews = () => {
     // Dummy data for college reviews
     const collegeReviews = [
         {
@@ -27,13 +29,20 @@ const CollegeReviewsSection = () => {
         <section className="py-12 px-6 md:px-12" data-aos="fade-up">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">College Reviews</h2>
-                <div className="grid gap-4">
+                <div className="grid grid-cols-3 gap-4">
                     {collegeReviews.map((review) => (
                         <div key={review.id} className="bg-white rounded-md shadow-md p-4">
                             <h3 className="text-lg font-semibold mb-2">{review.college}</h3>
                             <p className="text-sm text-gray-500 mb-2">{review.review}</p>
                             <div className="flex items-center">
-                                <span className="text-yellow-500 text-lg">&#9733;</span>
+                                <StarRatings
+                                    rating={review.rating}
+                                    starRatedColor="gold"
+                                    starEmptyColor="gray"
+                                    starHoverColor="gold"
+                                    starDimension="20px"
+                                    starSpacing="2px"
+                                />
                                 <span className="ml-1 text-gray-600">{review.rating}</span>
                             </div>
                         </div>
@@ -44,4 +53,4 @@ const CollegeReviewsSection = () => {
     );
 };
 
-export default CollegeReviewsSection;
+export default CollegeReviews;

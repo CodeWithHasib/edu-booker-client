@@ -3,6 +3,7 @@ import Hero from './Hero';
 import FeaturedCollege from './FeaturedCollage';
 import GraduateGallery from './GraduatedGellary';
 import ResearchPapers from './ResearchPapers';
+import CollegeReviews from './CollegeReview';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <FeaturedCollege />
             <GraduateGallery />
             <ResearchPapers />
+            <CollegeReviews />
         </section>
     );
 };
