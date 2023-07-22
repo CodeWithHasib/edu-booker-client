@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 const navLinks = [
     {
         name: 'Home',
@@ -27,12 +28,12 @@ const NavBar = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [navBg, setNavBg] = useState('bg-black');
     const [isFixed, setIsFixed] = useState(false);
-
+    const { user } = useAuth();
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
-    const handelLogout = e => {
-        e.preventDefault();
+    const handelLogout = () => {
+        // e.preventDefault();
         Swal.fire({
             title: 'Are you sure to logout ?',
             text: "You won't be able to revert this!",
@@ -141,6 +142,19 @@ const NavBar = () => {
                                     </li>
                                 ))}
 
+                                {
+                                    user ? <li>
+                                        <button onClick={() => handelLogout()} className='px-3 py-1 bg-blue-500 rounded-lg text-white font-bold'>Logout</button>
+                                    </li> : <li>
+                                        <NavLink
+                                            className={({ isActive }) => `font-bold ${isActive ? 'text-blue-600' : `${navBg.includes('bg-transparent') ? 'text-white' : 'text-white'}`} hover:text-secondary duration-300`}
+                                            to='/login'
+                                            style={{ whiteSpace: 'nowrap' }}
+                                        >
+                                            Login
+                                        </NavLink>
+                                    </li>
+                                }
                             </ul>
 
                         </div>
