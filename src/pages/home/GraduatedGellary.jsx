@@ -1,8 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const GraduateGallery = () => {
-    // Dummy data for college graduate images
+    
     const graduateImages = [
         'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
         'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
