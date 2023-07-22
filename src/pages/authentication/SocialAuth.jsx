@@ -1,6 +1,9 @@
 import React from 'react';
+import { useAuth } from '../../hooks/useAuth';
+import { FaGithub } from 'react-icons/fa';
 
 const SocialAuth = () => {
+    const { googleLogin, githubLogin } = useAuth();
     return (
         <>
             <div className="flex items-center justify-center space-x-2 my-5">
@@ -10,9 +13,11 @@ const SocialAuth = () => {
             </div>
 
             <div className="flex justify-center gap-5 w-full ">
+                {/* Google Button */}
                 <button
+                    onClick={() => googleLogin()}
                     type="submit"
-                    className="w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-purple-700 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500"
+                    className="w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300  hover:bg-blue-500 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500"
                 >
                     <svg className="w-4 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -36,19 +41,13 @@ const SocialAuth = () => {
                 </button>
 
                 <button
+                    onClick={() => githubLogin()}
                     type="submit"
-                    className="w-full flex items-center justify-center mb-6 md:mb-0 border border-gray-300 hover:border-gray-900 hover:bg-gray-900 text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500 px-"
+                    className="w-full gap-2 flex items-center justify-center mb-6 md:mb-0 border border-gray-300  hover:bg-blue-600 hover:text-white text-sm text-gray-500 p-3 rounded-lg tracking-wide font-medium cursor-pointer transition ease-in duration-500 px-"
                 >
-                    <svg
-                        className="w-4 mr-2"
-                        viewBox="0 0 100 100"
-                        // style="enable-background:new 0 0 100 100"
-                        xmlSpace="preserve"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        {/* SVG paths and styles omitted for brevity */}
-                    </svg>
-                    <span>Facebook</span>
+
+                    <FaGithub className='text-xl' />
+                    <span>Github</span>
                 </button>
             </div>
         </>

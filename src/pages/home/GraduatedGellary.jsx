@@ -14,7 +14,7 @@ const GraduateGallery = () => {
         <section className="py-12 px-6 md:px-12">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">College Graduate Image Gallery</h2>
-                <div className="flex overflow-hidden space-x-4">
+                <div className="flex md:flex-wrap flex-col lg:flex-row overflow-hidden space-x-4">
                     {graduateImages.map((image, index) => (
                         <div
                             key={index}

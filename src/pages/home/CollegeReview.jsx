@@ -29,7 +29,7 @@ const CollegeReviews = () => {
         <section className="py-12 px-6 md:px-12" data-aos="fade-up">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">College Reviews</h2>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {collegeReviews.map((review) => (
                         <div key={review.id} className="bg-white rounded-md shadow-md p-4">
                             <h3 className="text-lg font-semibold mb-2">{review.college}</h3>
