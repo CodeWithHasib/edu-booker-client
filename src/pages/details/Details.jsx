@@ -1,9 +1,14 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import CollegeDetails from '../../components/details/CollegeDetails';
 
 const Details = () => {
+    const college = useLoaderData();
+
+    console.log(college)
     return (
         <div>
-            <h1>Details</h1>
+            <CollegeDetails id={college._id} college={college} />
         </div>
     );
 };
