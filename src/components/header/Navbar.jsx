@@ -25,10 +25,10 @@ const NavBar = () => {
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isHome, setIsHome] = useState(false);
-    const [isLogin, setIsLogin] = useState(false);
+    const [, setIsLogin] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [navBg, setNavBg] = useState('bg-black');
-    const [isFixed, setIsFixed] = useState(false);
+    const [, setIsFixed] = useState(false);
     const { logout } = useAuth();
     const { user, setUser } = useContext(AuthContext)
     const toggleMobileMenu = () => {
@@ -144,6 +144,18 @@ const NavBar = () => {
 
                                     </li>
                                 ))}
+                                {
+                                    user && <li>
+                                        <NavLink
+                                            className={({ isActive }) => `font-bold ${isActive ? 'text-blue-600' : `${navBg.includes('bg-transparent') ? 'text-white' : 'text-white'}`} hover:text-secondary duration-300`}
+                                            to='/my-college'
+                                            style={{ whiteSpace: 'nowrap' }}
+                                        >
+                                           My College
+                                        </NavLink>
+
+                                    </li>
+                                }
                                 {
                                     user && <li>
                                         <span className='text-blue-500'>{user?.displayName}</span>
