@@ -1,44 +1,18 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 // import { useParams, useHistory } from 'react-router-dom';
 
 const Admission = ({ college }) => {
 
+    const { user } = useAuth();
 
-
-    const [candidateData, setCandidateData] = useState({
-        candidateName: '',
-        subject: '',
-        candidateEmail: '',
-        candidatePhone: '',
-        address: '',
-        dateOfBirth: '',
-        image: '',
-    });
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setCandidateData((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission here (e.g., send data to the server)
-        console.log(candidateData);
-        // Reset the form fields
-        setCandidateData({
-            candidateName: '',
-            subject: '',
-            candidateEmail: '',
-            candidatePhone: '',
-            address: '',
-            dateOfBirth: '',
-            image: '',
-        });
-        // Redirect back to the college details page after form submission
-        // history.push(`/college/${id}`);
+        const from = new FormData(e.target);
+        const data = Object.fromEntries(from);
+        console.log(data);
+
     };
 
     if (!college) {
@@ -56,18 +30,22 @@ const Admission = ({ college }) => {
                             <label className="block text-sm font-medium text-gray-700">Candidate Name</label>
                             <input
                                 type="text"
+                                value={user?.displayName}
                                 name="candidateName"
-                                value={candidateData.candidateName}
-                                onChange={handleInputChange}
+                                disabled
+                                title='You cannot change your name'
                                 required
                                 className="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
                             />
                         </div>
                         <div className='w-full'>
-                            <label className="block text-sm font-medium text-gray-700">Subject</label>
+                            <label className="block text-sm font-medium text-gray-700">Candidate Email</label>
                             <input
-                                type="text"
-                                name="subject"
+                                type="email"
+                                value={user?.email}
+                                disabled
+                                title='You cannot change your email address'
+                                name="email"
                                 required
                                 className="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
                             />
@@ -75,10 +53,10 @@ const Admission = ({ college }) => {
                     </div>
                     <div className="flex w-full gap-3">
                         <div className='w-full'>
-                            <label className="block text-sm font-medium text-gray-700">Candidate Email</label>
+                            <label className="block text-sm font-medium text-gray-700">Subject</label>
                             <input
-                                type="email"
-                                name="candidateEmail"
+                                type="text"
+                                name="subject"
                                 required
                                 className="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
                             />
