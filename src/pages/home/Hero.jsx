@@ -18,7 +18,7 @@ const Hero = () => {
                             placeholder="Search for a college name"
                             className="w-full px-4 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400"
                         />
-                        <button onClick={() => navigate(`/college/search/${searchQuery}`)} className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4 w-full">Search</button>
+                        <button onClick={() => navigate(`/college/search?query=${searchQuery}`)} className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4 w-full">Search</button>
                     </div>
                 </div>
             </div>
