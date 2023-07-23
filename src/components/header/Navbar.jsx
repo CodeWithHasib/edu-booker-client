@@ -11,8 +11,8 @@ const navLinks = [
         route: '/'
     },
     {
-        name: 'Login',
-        route: '/register'
+        name: 'College',
+        route: '/college'
     },
     {
         name: 'Classes',
