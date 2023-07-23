@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BarLoader } from 'react-spinners';
-
+import { useNavigate } from 'react-router-dom'
 
 const College = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
     useEffect(() => {
         fetch('http://localhost:5000/college')
             .then(res => res.json())
@@ -39,7 +40,7 @@ const College = () => {
                                 <p className="text-sm text-gray-600 mb-4">{college.researchHistory}</p>
                                 <p className="text-sm text-gray-600">Sports: {college.sports}</p>
                             </div>
-                            <button className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4">Details</button>
+                            <button onClick={() => navigate(`/details/${college._id}`)} className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4">Details</button>
                         </div>))
                 }
             </div>
