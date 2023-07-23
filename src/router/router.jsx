@@ -9,6 +9,7 @@ import SearchCollage from "../pages/search/SearchCollage";
 import Details from "../pages/details/Details";
 import AdmissionWrapper from "../pages/admission/AdmissionWrapper";
 import PrivetRoute from "./PrivetRoute";
+import MyCollege from "../pages/MyCollege/MyCollege";
 
 export const router = createBrowserRouter([
     {
@@ -16,13 +17,41 @@ export const router = createBrowserRouter([
         element: <MainLayout />,
         errorElement: <Error404 />,
         children: [
-            { path: "/", element: <Home /> },
-            { path: '/register', element: <Register /> },
-            { path: '/login', element: <Login /> },
-            { path: '/college', element: <College /> },
-            { path: '/college/search/', element: <SearchCollage /> },
-            { path: '/details/:id', element: <Details />, loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`) },
-            { path: '/admission/:id', element: <PrivetRoute><AdmissionWrapper /></PrivetRoute>, loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`) },
+            {
+                path: "/",
+                element: <Home />
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/college',
+                element: <College />
+            },
+            {
+                path: '/college/search/',
+                element: <SearchCollage />
+            },
+            {
+                path: '/details/:id',
+                element: <Details />,
+                loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`)
+            },
+            {
+                path: '/admission/:id',
+                element: <PrivetRoute><AdmissionWrapper /></PrivetRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`)
+            },
+            {
+                path: '/my-college',
+                element: <PrivetRoute><MyCollege /></PrivetRoute>
+            }
+
         ]
     }
 ])
