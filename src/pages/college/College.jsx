@@ -8,7 +8,6 @@ const College = () => {
             .then(data => setData(data))
 
     }, [])
-    console.log(data)
     return (
         <div className='w-[80%] mx-auto mt-10 pt-10'>
             <div className="grid md:gap-5 my-10 md:grid-cols-2 lg:grid-cols-3">
