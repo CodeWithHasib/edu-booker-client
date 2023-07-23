@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CollegeDetails = ({ college }) => {
     // const { id } = useParams();
     // const college = colleges.find((college) => college._id === parseInt(id));
+
+    const navigate = useNavigate();
 
     if (!college) {
         return <div>College not found</div>;
@@ -56,7 +59,9 @@ const CollegeDetails = ({ college }) => {
 
                 {/* Admission Button */}
                 <div className="flex justify-center mt-6">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+                    <button
+                        onClick={() => navigate(`/admission/${college._id}`)}
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
                         Apply for Admission
                     </button>
                 </div>

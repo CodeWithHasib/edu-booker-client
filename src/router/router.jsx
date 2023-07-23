@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             { path: '/college', element: <College /> },
             { path: '/college/search/', element: <SearchCollage /> },
             { path: '/details/:id', element: <Details />, loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`) },
-            { path: '/admission/:id', element: <AdmissionWrapper /> },
+            { path: '/admission/:id', element: <AdmissionWrapper />, loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`) },
         ]
     }
 ])
