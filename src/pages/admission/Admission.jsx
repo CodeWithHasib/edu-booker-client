@@ -12,18 +12,19 @@ const Admission = ({ college }) => {
         e.preventDefault();
         const from = new FormData(e.target);
         const data = Object.fromEntries(from);
+        data.college = college.name;
         console.log(data);
-        // fetch(`http://localhost:5000/admission`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         console.log(result);
-        //     })
+        fetch(`http://localhost:5000/admission`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
 
     };
 
