@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import SocialAuth from './SocialAuth';
 import { useAuth } from '../../hooks/useAuth';
 const Login = () => {
 
   const { login , user } = useAuth();
-
+  const location = useLocation();
 
   if (user) {
-    return <Navigate to='/' />
+    return <Navigate to={location.state?.to || '/'} />
   }
 
   const handelFromSubmit = e => {
