@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-const CollegeDetails = ({ college  }) => {
+const CollegeDetails = ({ college }) => {
     // const { id } = useParams();
     // const college = colleges.find((college) => college._id === parseInt(id));
 
@@ -10,10 +9,10 @@ const CollegeDetails = ({ college  }) => {
     }
 
     return (
-        <div>
+        <div className='md:w-[90%] lg:w-[85%] mx-auto' >
             <div className="bg-white rounded-lg shadow-lg p-6">
                 <h2 className="text-3xl font-semibold mb-4">{college.name}</h2>
-                <img src={college.image} alt={college.name} className="w-full h-auto mb-4 rounded-lg" />
+                <img src={college.image} alt={college.name} className="w-full h-[560px] mb-4 rounded-lg" />
                 <p>Admission Date: {college.admissionDate}</p>
                 <h3 className="mt-4">Events</h3>
                 <ul>
