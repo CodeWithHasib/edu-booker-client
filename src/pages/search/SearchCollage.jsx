@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { BarLoader } from 'react-spinners';
 
 const SearchCollage = () => {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const searchQuery = query.get('query');
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`http://localhost:5000/colleges?name=${searchQuery}`)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data);
+                setLoading(false);
+            })
     }, [searchQuery])
     console.log(data)
+
+    if (loading && data.length === 0) {
+        return <div className="h-screen w-full flex justify-center items-center">
+            <BarLoader color="#36d7b7" />
+        </div>
+    }
 
     return (
         <div className='mt-10 pt-10 w-[80%] mx-auto'>

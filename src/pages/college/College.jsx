@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { BarLoader } from 'react-spinners';
+
 
 const College = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('http://localhost:5000/college')
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {
+                setData(data);
+                setLoading(false);
+            })
 
     }, [])
+
+    if (loading && data.length === 0) {
+        return <div className="h-screen w-full flex justify-center items-center">
+            <BarLoader color="#36d7b7" />
+        </div>
+    }
+
     return (
         <div className='w-[80%] mx-auto mt-10 pt-10'>
             <div className="grid md:gap-5 my-10 md:grid-cols-2 lg:grid-cols-3">
