@@ -7,11 +7,23 @@ const Admission = ({ college }) => {
     const { user } = useAuth();
 
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const from = new FormData(e.target);
         const data = Object.fromEntries(from);
         console.log(data);
+        fetch(`http://localhost:5000/admission`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
 
     };
 
@@ -30,9 +42,9 @@ const Admission = ({ college }) => {
                             <label className="block text-sm font-medium text-gray-700">Candidate Name</label>
                             <input
                                 type="text"
-                                value={user?.displayName}
+                                defaultValue={user?.displayName}
                                 name="candidateName"
-                                disabled
+                                readOnly
                                 title='You cannot change your name'
                                 required
                                 className="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
@@ -42,8 +54,8 @@ const Admission = ({ college }) => {
                             <label className="block text-sm font-medium text-gray-700">Candidate Email</label>
                             <input
                                 type="email"
-                                value={user?.email}
-                                disabled
+                                defaultValue={user?.email}
+                                readOnly
                                 title='You cannot change your email address'
                                 name="email"
                                 required
