@@ -7,8 +7,8 @@ const ResetPassword = () => {
     const { resetPassword } = useAuth();
     const handleResetPassword = () => {
         resetPassword(email)
-            .then(res => {
-                console.log(res);
+            .then(() => {
+                alert(`Password reset link has been sent to ${email}.`);
             })
             .catch(err => {
                 console.log(err);
