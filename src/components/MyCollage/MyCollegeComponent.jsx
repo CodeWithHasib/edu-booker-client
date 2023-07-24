@@ -25,7 +25,6 @@ const MyCollegeComponents = ({userData}) => {
     rating: 0,
     reviewText: '',
   });
-  console.log(reviewData)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,6 +44,7 @@ const MyCollegeComponents = ({userData}) => {
   const handleSubmitReview = (e) => {
     e.preventDefault();
     // Handle review submission here (e.g., send data to the server)
+    reviewData.college = userData.college.name;
     console.log(reviewData);
     // Reset the review form fields
     setReviewData({

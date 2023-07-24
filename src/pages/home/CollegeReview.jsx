@@ -10,18 +10,21 @@ const CollegeReviews = () => {
             college: "ABC College",
             review: "Excellent facilities and supportive faculty. Loved my time here!",
             rating: 4.5,
+            name: "Md . Rakibul Islam",
         },
         {
             id: 2,
             college: "XYZ University",
             review: "Great campus and diverse student community. Highly recommended!",
             rating: 4.8,
+            name: "Md . Rakibul Islam",
         },
         {
             id: 3,
             college: "PQR Institute",
             review: "Incredible research opportunities and top-notch education.",
             rating: 4.7,
+            name: "Md . Rakibul Islam",
         },
     ];
 
@@ -45,6 +48,7 @@ const CollegeReviews = () => {
                                 />
                                 <span className="ml-1 text-gray-600">{review.rating}</span>
                             </div>
+                            <h1 className='mt-3'><span className='font-bold'>By : </span>{review.name}</h1>
                         </div>
                     ))}
                 </div>
