@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { app } from '../config/firebase.init';
 export const AuthContext = createContext(null);
 
@@ -20,6 +20,9 @@ const AuthProvider = ({ children }) => {
             setError(error.code);
             throw error;
         }
+    }
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
     }
 
     const updateName = (name) => {
@@ -65,7 +68,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, [auth])
 
-    const contextValue = { register, updateName, error, loader, setLoader, user, logout, login, setUser , googleLogin , githubLogin };
+    const contextValue = { register, updateName, error, loader, setLoader, user, logout, login, setUser, googleLogin, githubLogin, resetPassword };
     return (
         <AuthContext.Provider value={contextValue}>
             {children}
