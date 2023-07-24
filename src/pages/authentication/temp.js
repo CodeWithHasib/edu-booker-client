@@ -104,11 +104,58 @@ const colleges = [
         "Sports are an integral part of life at PQR Institute. The campus has excellent facilities for athletics, swimming, and table tennis. Students actively participate in intercollegiate sports competitions and bring home trophies and medals.",
     },
   },
+  {
+    id: 4,
+    name: "FDN Institute",
+    image: "https://img.freepik.com/premium-photo/king-s-college-chapel-cambridge_1339-82841.jpg?w=740",
+    admissionDate: "July 30, 2023",
+    events: ["Annual Convocation", "Coding Competition", "Literary Fest"],
+    researchHistory: "Renowned for innovative research and academic excellence.",
+    sports: "Athletics, Swimming, Table Tennis",
+    details: {
+      images: [
+        "https://img.freepik.com/free-photo/brainstorm-meeting_1098-15871.jpg?w=740&t=st=1690211882~exp=1690212482~hmac=b2a28d5710bbb3620e942747db184fb6823434ec04c4d0c5313242e7a4de022b",
+        "https://img.freepik.com/premium-photo/education-technology-internet-concept-two-smiling-students-with-laptop-notebooks-school_380164-45370.jpg?w=740",
+        "https://img.freepik.com/free-psd/school-admission-social-media-post-instagram-post-template_501970-160.jpg?w=740&t=st=1690211929~exp=1690212529~hmac=456d9306eecee20b4ff3ef38b22aaaf2610a59bea0c60d7c00a85bfe6a6100bc",
+      ],
+      admissionProcess:
+        "Admission process at PQR Institute involves a comprehensive evaluation of candidates' academic records and performance in the entrance examination. Shortlisted students are invited for interviews and counseling sessions.",
+      eventsDetails:
+        "PQR Institute organizes various events that promote creativity and intellectual growth. The Annual Convocation celebrates the achievements of graduating students. The Coding Competition challenges students to showcase their programming skills, and the Literary Fest celebrates literary talents with poetry and storytelling sessions.",
+      researchWorks:
+        "PQR Institute is recognized for its groundbreaking research in diverse fields, such as medicine, engineering, and social sciences. Faculty members and students collaborate on research projects that address global challenges. The institute's research publications have a significant impact in the academic community.",
+      sportsCategories:
+        "Sports are an integral part of life at PQR Institute. The campus has excellent facilities for athletics, swimming, and table tennis. Students actively participate in intercollegiate sports competitions and bring home trophies and medals.",
+    },
+  },
 ];
 
 // Add more college objects with detailed information if needed.
 
-console.log(JSON.stringify(colleges));
+console.log(JSON.stringify({
+  id: 5,
+  name: "BM College",
+  image: "https://img.freepik.com/premium-photo/young-asian-indian-college-students-reading-books-studying-laptop-preparing-exam-working-group-project-while-sitting-grass-staircase-steps-college-campus_466689-7729.jpg?w=740",
+  admissionDate: "July 30, 2023",
+  events: ["Annual Convocation", "Coding Competition", "Literary Fest"],
+  researchHistory: "Renowned for innovative research and academic excellence.",
+  sports: "Athletics, Swimming, Table Tennis",
+  details: {
+    images: [
+      "https://img.freepik.com/free-psd/school-admission-social-media-post-instagram-post-template_501970-160.jpg?w=740&t=st=1690211929~exp=1690212529~hmac=456d9306eecee20b4ff3ef38b22aaaf2610a59bea0c60d7c00a85bfe6a6100bc",
+      "https://img.freepik.com/premium-photo/education-technology-internet-concept-two-smiling-students-with-laptop-notebooks-school_380164-45370.jpg?w=740",
+      "https://img.freepik.com/free-psd/school-admission-social-media-post-instagram-post-template_501970-160.jpg?w=740&t=st=1690211929~exp=1690212529~hmac=456d9306eecee20b4ff3ef38b22aaaf2610a59bea0c60d7c00a85bfe6a6100bc",
+    ],
+    admissionProcess:
+      "Admission process at PQR Institute involves a comprehensive evaluation of candidates' academic records and performance in the entrance examination. Shortlisted students are invited for interviews and counseling sessions.",
+    eventsDetails:
+      "PQR Institute organizes various events that promote creativity and intellectual growth. The Annual Convocation celebrates the achievements of graduating students. The Coding Competition challenges students to showcase their programming skills, and the Literary Fest celebrates literary talents with poetry and storytelling sessions.",
+    researchWorks:
+      "PQR Institute is recognized for its groundbreaking research in diverse fields, such as medicine, engineering, and social sciences. Faculty members and students collaborate on research projects that address global challenges. The institute's research publications have a significant impact in the academic community.",
+    sportsCategories:
+      "Sports are an integral part of life at PQR Institute. The campus has excellent facilities for athletics, swimming, and table tennis. Students actively participate in intercollegiate sports competitions and bring home trophies and medals.",
+  },
+}));
 
 
 const collegeReviews = [

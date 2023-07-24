@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { BarLoader } from 'react-spinners';
 
 const SearchCollage = () => {
@@ -8,7 +8,7 @@ const SearchCollage = () => {
     const searchQuery = query.get('query');
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
     useEffect(() => {
         fetch(`https://edu-booker.vercel.app/colleges?name=${searchQuery}`)
             .then(res => res.json())
@@ -49,7 +49,7 @@ const SearchCollage = () => {
                                         <p className="text-sm text-gray-600 mb-4">{college.researchHistory}</p>
                                         <p className="text-sm text-gray-600">Sports: {college.sports}</p>
                                     </div>
-                                    <button className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4">Details</button>
+                                    <button onClick={()=>navigate(`/details/${college._id}`)} className="bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-md text-white font-semibold mt-4">Details</button>
                                 </div>))
                         }
                     </div>

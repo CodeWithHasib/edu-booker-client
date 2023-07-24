@@ -5,7 +5,6 @@ import CollegeDetails from '../../components/details/CollegeDetails';
 const Details = () => {
     const college = useLoaderData();
 
-    console.log(college)
     return (
         <div>
             <CollegeDetails id={college._id} college={college} />
