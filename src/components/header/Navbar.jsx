@@ -14,10 +14,6 @@ const navLinks = [
         name: 'College',
         route: '/college'
     },
-    {
-        name: 'Classes',
-        route: '/classes'
-    }
 ];
 
 const NavBar = () => {
