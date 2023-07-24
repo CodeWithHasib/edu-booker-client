@@ -27,6 +27,9 @@ const Admission = ({ college }) => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                if (result.insertedId) {
+                    alert('Admission request submitted successfully.');
+                }
             })
 
     };

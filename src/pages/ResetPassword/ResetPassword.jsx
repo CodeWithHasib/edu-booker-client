@@ -6,6 +6,7 @@ const ResetPassword = () => {
     const [email, setEmail] = useState('');
     const { resetPassword } = useAuth();
     const handleResetPassword = () => {
+        if (email.length === 0) return alert('Please enter your email.');
         resetPassword(email)
             .then(() => {
                 alert(`Password reset link has been sent to ${email}.`);
