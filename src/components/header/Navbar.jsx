@@ -14,6 +14,10 @@ const navLinks = [
         name: 'College',
         route: '/college'
     },
+    {
+        name: 'Reset Password',
+        route: '/reset-password'
+    }
 ];
 
 const NavBar = () => {
@@ -147,7 +151,7 @@ const NavBar = () => {
                                             to='/my-college'
                                             style={{ whiteSpace: 'nowrap' }}
                                         >
-                                           My College
+                                            My College
                                         </NavLink>
 
                                     </li>
