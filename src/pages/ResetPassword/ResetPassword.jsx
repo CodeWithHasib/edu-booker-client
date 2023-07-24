@@ -1,31 +1,46 @@
 // ResetPassword.js
 import React, { useState } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 
 const ResetPassword = () => {
     const [email, setEmail] = useState('');
-
+    const { resetPassword } = useAuth();
     const handleResetPassword = () => {
-        // Here you can implement the logic to send a reset password link to the user's email.
-        // You can use a backend API to handle the actual email sending process.
-        // For this example, we'll just display a message indicating the password reset link has been sent.
-        alert(`Password reset link has been sent to ${email}.`);
+        resetPassword(email)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+        // alert(`Password reset link has been sent to ${email}.`);
     };
 
     return (
-        <div className="container">
-            <h2>Reset Password</h2>
-            <div className="form-group">
-                <label>Email:</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                />
+        <div className="flex items-center justify-center h-screen bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+                <h2 className="text-2xl font-semibold mb-4">Reset Password</h2>
+                <div className="mb-4">
+                    <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                        Email:
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                        placeholder="Enter your email"
+                    />
+                </div>
+                <button
+                    onClick={handleResetPassword}
+                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-blue-600"
+                >
+                    Reset Password
+                </button>
             </div>
-            <button onClick={handleResetPassword} className="btn btn-primary">
-                Reset Password
-            </button>
         </div>
     );
 };

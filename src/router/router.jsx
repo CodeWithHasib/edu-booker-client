@@ -10,6 +10,7 @@ import Details from "../pages/details/Details";
 import AdmissionWrapper from "../pages/admission/AdmissionWrapper";
 import PrivetRoute from "./PrivetRoute";
 import MyCollege from "../pages/MyCollege/MyCollege";
+import ResetPassword from "../pages/ResetPassword/ResetPassword";
 
 export const router = createBrowserRouter([
     {
@@ -49,7 +50,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/my-college',
-                element: <PrivetRoute><MyCollege /></PrivetRoute>
+                element: <PrivetRoute><MyCollege /></PrivetRoute>, 
+            }, 
+            {
+                path : '/reset-password',
+                element : <ResetPassword />
             }
 
         ]
