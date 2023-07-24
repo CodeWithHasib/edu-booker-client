@@ -6,7 +6,7 @@ const CollegeReviews = () => {
     const [collegeReviews, setCollegeReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://edu-booker.vercel.app/review')
             .then((res) => res.json())
             .then((data) => {
                 setCollegeReviews(data);

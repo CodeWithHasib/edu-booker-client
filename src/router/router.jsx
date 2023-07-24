@@ -41,12 +41,12 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Details />,
-                loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`)
+                loader: ({ params }) => fetch(`https://edu-booker.vercel.app/college/${params.id}`)
             },
             {
                 path: '/admission/:id',
                 element: <PrivetRoute><AdmissionWrapper /></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/college/${params.id}`)
+                loader: ({ params }) => fetch(`https://edu-booker.vercel.app/college/${params.id}`)
             },
             {
                 path: '/my-college',

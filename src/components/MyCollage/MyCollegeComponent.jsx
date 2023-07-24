@@ -32,7 +32,7 @@ const MyCollegeComponents = ({ userData }) => {
     reviewData.name = user?.displayName || 'anonymous';
     console.log(reviewData);
 
-    fetch('http://localhost:5000/review', {
+    fetch('https://edu-booker.vercel.app/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -7,7 +7,7 @@ const College = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('http://localhost:5000/college')
+        fetch('https://edu-booker.vercel.app/college')
             .then(res => res.json())
             .then(data => {
                 setData(data);

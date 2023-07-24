@@ -17,7 +17,7 @@ const Admission = ({ college }) => {
             id: college._id,
             image: college.image
         };
-        fetch(`http://localhost:5000/admission`, {
+        fetch(`https://edu-booker.vercel.app/admission`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -8,7 +8,7 @@ const MyCollege = () => {
     const [loading, setLoading] = useState(true);
     const { user } = useAuth();
     useEffect(() => {
-        fetch(`http://localhost:5000/admission/${user?.email}`)
+        fetch(`https://edu-booker.vercel.app/admission/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
