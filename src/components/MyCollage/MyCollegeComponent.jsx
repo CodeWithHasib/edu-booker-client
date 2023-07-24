@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
+import { useAuth } from '../../hooks/useAuth';
 
-const MyCollegeComponents = ({userData}) => {
-  const { id } = useParams();
+const MyCollegeComponents = ({ userData }) => {
 
-  // Assuming you receive the user data as props or fetch it from the backend
-//   const userData = {
-//     _id: "64be1bb816a7944673a9ea62",
-//     candidateName: "Md . Rakibul Islam",
-//     email: "boraborhasib@gmail.com",
-//     subject: "Test ",
-//     candidatePhone: "01319373523",
-//     address: "pabna, Ishwardi",
-//     additionalDetails: "Test",
-//     college: {
-//       name: "ABC College",
-//       id: "64bcbc0e16abffa85217aafe",
-//       image: "https://img.freepik.com/premium-photo/students-standing-with-open-books-looking-camera_23-2148166405.jpg?w=740"
-//     }
-//   };
-
+  const { user } = useAuth();
   const [reviewData, setReviewData] = useState({
     rating: 0,
     reviewText: '',
@@ -45,7 +29,24 @@ const MyCollegeComponents = ({userData}) => {
     e.preventDefault();
     // Handle review submission here (e.g., send data to the server)
     reviewData.college = userData.college.name;
+    reviewData.name = user?.displayName || 'anonymous';
     console.log(reviewData);
+
+    fetch('http://localhost:5000/review', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.insertedId) {
+          alert('Review added successfully');
+        }
+      })
+
     // Reset the review form fields
     setReviewData({
       rating: 0,
@@ -87,7 +88,7 @@ const MyCollegeComponents = ({userData}) => {
                 onChange={handleInputChange}
                 required
                 rows="4"
-                className="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
+                className="mt-1 p-2 w-full resize-none border rounded-lg focus:outline-none focus:ring focus:border-blue-500"
               />
             </div>
             <button

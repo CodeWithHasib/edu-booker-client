@@ -1,43 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StarRatings from 'react-star-ratings';
-
 
 const CollegeReviews = () => {
     // Dummy data for college reviews
-    const collegeReviews = [
-        {
-            id: 1,
-            college: "ABC College",
-            review: "Excellent facilities and supportive faculty. Loved my time here!",
-            rating: 4.5,
-            name: "Md . Rakibul Islam",
-        },
-        {
-            id: 2,
-            college: "XYZ University",
-            review: "Great campus and diverse student community. Highly recommended!",
-            rating: 4.8,
-            name: "Md . Rakibul Islam",
-        },
-        {
-            id: 3,
-            college: "PQR Institute",
-            review: "Incredible research opportunities and top-notch education.",
-            rating: 4.7,
-            name: "Md . Rakibul Islam",
-        },
-    ];
+    const [collegeReviews, setCollegeReviews] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+            .then((res) => res.json())
+            .then((data) => {
+                setCollegeReviews(data);
+            });
+    }, []);
 
     return (
         <section className="py-12 px-6 md:px-12" data-aos="fade-up">
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-4">College Reviews</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {collegeReviews.map((review) => (
-                        <div key={review.id} className="bg-white rounded-md shadow-md p-4">
+                        <div key={review._id} className="bg-white rounded-md shadow-md p-4">
                             <h3 className="text-lg font-semibold mb-2">{review.college}</h3>
-                            <p className="text-sm text-gray-500 mb-2">{review.review}</p>
-                            <div className="flex items-center">
+                            <div className="flex items-center mb-2">
                                 <StarRatings
                                     rating={review.rating}
                                     starRatedColor="gold"
@@ -48,7 +32,10 @@ const CollegeReviews = () => {
                                 />
                                 <span className="ml-1 text-gray-600">{review.rating}</span>
                             </div>
-                            <h1 className='mt-3'><span className='font-bold'>By : </span>{review.name}</h1>
+                            <p className="text-sm text-gray-500 mb-2">{review.reviewText}</p>
+                            <h1 className="mt-3 text-sm">
+                                <span className="font-bold">By:</span> {review.name || 'anonymous'}
+                            </h1>
                         </div>
                     ))}
                 </div>

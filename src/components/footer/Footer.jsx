@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0">
-                        <h2 className="text-2xl font-semibold">CollegeConnect</h2>
+                        <h2 className="text-2xl font-semibold">EduBooker</h2>
                         <p className="text-sm">Your One-Stop College Booking Platform</p>
                     </div>
                     <div className="flex mt-4 md:mt-0">

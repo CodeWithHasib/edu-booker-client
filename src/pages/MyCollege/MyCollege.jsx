@@ -14,15 +14,14 @@ const MyCollege = () => {
                 setData(data);
                 setLoading(false);
             })
-    }, [user?.email])
-    console.log(data)
+    }, [user?.email]);
 
     if (loading) return <div className="h-screen w-full flex flex-col justify-center items-center">
         <BarLoader color="#36d7b7" />
     </div>
 
     else return (
-        <div className='grid grid-cols-2 mt-10 pt-10 bg-gray-100'>
+        <div className='grid lg:grid-cols-2 mt-10 pt-10 bg-gray-100'>
             {
                 data.map((item, index) => <MyCollegeComponents key={index} userData={item} />)
             }
