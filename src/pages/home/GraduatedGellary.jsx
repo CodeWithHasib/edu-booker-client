@@ -4,10 +4,10 @@ const GraduateGallery = () => {
     
     const graduateImages = [
         'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
-        'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
-        'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
-        'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
-        'https://img.freepik.com/premium-photo/your-girl-just-got-qualified-portrait-young-woman-holding-her-diploma-graduation-day_590464-61542.jpg?w=740',
+        'https://img.freepik.com/free-photo/happy-student-with-graduation-hat-diploma-grey_231208-12979.jpg?w=740&t=st=1690210497~exp=1690211097~hmac=24c144b6dc044ac0103357f2e29faaf5b1324f25fbebf539d185e90b5cf98570',
+        'https://img.freepik.com/premium-photo/portrait-multiracial-graduates-holding-diploma-doing-selfie-phone-lifestule_115086-212.jpg?w=740',
+        'https://img.freepik.com/free-photo/indian-graduate-graduation-robe-with-diploma-university-campus-copy-space_496169-1330.jpg?w=740&t=st=1690210567~exp=1690211167~hmac=88058a6dd147a21489fc854a6d928e0becd42585c30c6164422d8efd30b09298',
+        'https://img.freepik.com/premium-photo/graduation-caps-thrown-happiness-success-cocnept_53876-27483.jpg?w=740',
     ];
 
     return (
