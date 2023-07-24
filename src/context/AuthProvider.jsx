@@ -16,6 +16,7 @@ const AuthProvider = ({ children }) => {
             return await createUserWithEmailAndPassword(auth, email, password);
         }
         catch (error) {
+            setLoader(false);
             setError(error.code);
             throw error;
         }
@@ -37,6 +38,7 @@ const AuthProvider = ({ children }) => {
             return await signInWithEmailAndPassword(auth, email, password);
         }
         catch (error) {
+            setLoader(false);
             setError(error.code);
             throw error;
         }
