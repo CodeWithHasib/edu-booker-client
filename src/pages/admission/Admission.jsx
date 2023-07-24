@@ -12,8 +12,11 @@ const Admission = ({ college }) => {
         e.preventDefault();
         const from = new FormData(e.target);
         const data = Object.fromEntries(from);
-        data.college = college.name;
-        console.log(data);
+        data.college = {
+            name: college.name,
+            id: college._id,
+            image: college.image
+        };
         fetch(`http://localhost:5000/admission`, {
             method: 'POST',
             headers: {
